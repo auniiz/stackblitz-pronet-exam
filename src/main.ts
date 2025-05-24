@@ -1,8 +1,7 @@
 import { Component, isDevMode } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { AppComponent } from './app/app.component';
+import { appConfig } from './app/app.config';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +16,5 @@ export class App {
   name = 'Angular';
 }
 
-bootstrapApplication(App, {
-    providers: [provideStore(), provideEffects(), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })]
-});
+
+bootstrapApplication(AppComponent, appConfig).catch((err) => console.error(err));
