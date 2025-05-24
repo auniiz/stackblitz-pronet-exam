@@ -16,4 +16,7 @@ export const characterReducer = createReducer(
    initialState,
    on(CharacterActions.loadCharactersSuccess, (state, { characters }) => ({ ...state, characters })),
    on(CharacterActions.loadCharactersFailure, (state, { error }) => ({ ...state, error })),
+
 );
+
+
