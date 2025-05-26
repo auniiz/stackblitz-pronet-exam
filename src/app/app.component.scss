@@ -1,0 +1,21 @@
+:host {
+   width: 100%;
+   height: 100;
+   .container {
+      display: flex;
+      &.navbar {
+         justify-content: space-between;
+         background-color: antiquewhite;
+
+         .menu {
+            border-radius: 8px;
+            &.active {
+               background-color: aquamarine;
+            }
+            &:hover {
+               background-color: gainsboro;
+            }
+         }
+      }
+   }
+}
