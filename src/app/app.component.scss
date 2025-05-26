@@ -6,15 +6,21 @@
       &.navbar {
          justify-content: space-between;
          background-color: antiquewhite;
-
-         .menu {
-            border-radius: 8px;
-            &.active {
-               background-color: aquamarine;
-            }
-            &:hover {
-               background-color: gainsboro;
-            }
+      }
+      & .menus {
+         flex-flow: row;
+         gap: 8px;
+         padding: 8px;
+      }
+      .menu {
+         border-radius: 8px;
+         padding: 8px;
+         cursor: pointer;
+         &.active {
+            background-color: aquamarine;
+         }
+         &:hover {
+            background-color: gainsboro;
          }
       }
    }

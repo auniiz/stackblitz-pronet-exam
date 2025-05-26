@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-characters',
@@ -7,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './characters.component.scss'
 })
 export class CharactersComponent {
-
 }

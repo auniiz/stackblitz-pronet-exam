@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import * as CharacterActions from './characters.actions';
-import { Character } from '../../models/character.model';
+import { ICharacter } from '../../models/character.model';
 
 export interface CharacterState {
-   characters: Character[];
+   characters: ICharacter[];
    error: any;
 }
 
