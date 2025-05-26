@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { EnumRouteLv0 } from './models';
 
 @Component({
   selector: 'app-app',
@@ -12,16 +13,18 @@ export class AppComponent {
   menus = [
     {
       title: 'Houses',
-      navigateTo: 'houses'
+      navigateTo: EnumRouteLv0.HOUSES
     },
     {
       title: 'Characters',
-      navigateTo: 'characters'
+      navigateTo: EnumRouteLv0.CHARACTERS
     },
     {
       title: 'Books',
-      navigateTo: 'books'
+      navigateTo: EnumRouteLv0.BOOKS
     }]
-  constructor(private router: Router) { }
+  enumRouteLv0 = EnumRouteLv0;
+  constructor() { }
+
 
 }

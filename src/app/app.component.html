@@ -3,15 +3,21 @@
       @for (menu of menus; track $index) {
       <div
          class="menu"
-         [routerLink]="[menu.navigateTo]"
          routerLinkActive="active"
+         [routerLink]="[menu.navigateTo]"
       >
          {{ menu.title }}
       </div>
       }
    </div>
    <div class="favorite container">
-      <div></div>
+      <div
+         class="menu"
+         routerLinkActive="active"
+         [routerLink]="[enumRouteLv0.FAVORITES]"
+      >
+         Favorites
+      </div>
    </div>
 </div>
 <router-outlet></router-outlet>

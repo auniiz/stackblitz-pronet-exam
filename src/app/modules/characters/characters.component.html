@@ -1,12 +1,1 @@
 <p>characters works!</p>
-<div class="list-container">
-   <input
-      type="text"
-      placeholder="Search houses..."
-      (input)="onSearch($event)"
-   />
-   <div class="house-card" *ngFor="let house of filteredHouses()">
-      <h3>{{ house.name }}</h3>
-      <p>{{ house.region }}</p>
-   </div>
-</div>
