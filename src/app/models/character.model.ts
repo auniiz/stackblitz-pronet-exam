@@ -1,4 +1,5 @@
 export interface ICharacter {
+   type: 'character';
    url: string;
    name: string;
    gender: string;

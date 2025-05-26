@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { IFavoriteItem } from '../../models/favorites.model';
 import { addFavorite, removeFavorite } from './favorites.actions';
 
-export const initialState: IFavoriteItem[] = [];
+const initialState: IFavoriteItem[] = [];
 
 export const favoritesReducer = createReducer(
    initialState,

@@ -8,6 +8,9 @@
    <div class="house-card">
       <h3>{{ house.name }}</h3>
       <p>{{ house.region }}</p>
+      <button (click)="toggleFavorite(house)">
+         {{ isFavorite(house) ? "Remove from Favorites" : "Add to Favorites" }}
+      </button>
    </div>
    }
 </div>

@@ -1,4 +1,5 @@
 export interface IHouse {
+   type: 'house';
    url: string;
    name: string;
    region: string;
