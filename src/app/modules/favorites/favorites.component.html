@@ -4,11 +4,11 @@
    <div class="favorite-card">
       <div>
          <h3>{{ item.name }}</h3>
-         @if(item.type === 'house'){
-         <p>House • Region: {{ item.region }}</p>
-         } @if (item.type === 'character') {
+         @switch (item.type) { @case ('character') {
          <p>Character • Gender: {{ item.gender }}</p>
-         }
+         }@case ('house') {
+         <p>House • Region: {{ item.region }}</p>
+         }}
       </div>
       <button (click)="remove(item.url)">Remove</button>
    </div>

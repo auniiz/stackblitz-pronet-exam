@@ -5,8 +5,8 @@ import { IHouse } from '../../models';
 
 @Injectable({ providedIn: 'root' })
 export class HousesService {
-   private http = inject(HttpClient);
-   private url = 'https://anapioficeandfire.com/api/houses';
+   url = 'https://anapioficeandfire.com/api/houses';
+   constructor(private http: HttpClient) { }
 
    getAll(): Observable<any[]> {
       return this.http.get<IHouse[]>(this.url);

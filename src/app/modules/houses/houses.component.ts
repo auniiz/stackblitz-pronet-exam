@@ -2,12 +2,13 @@ import { Component, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IFavoriteItem, IHouse } from '../../models';
 import { addFavorite, loadHouses, removeFavorite, selectAllHouses, selectFavorites } from '../../store';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-houses',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './houses.component.html',
-  styleUrl: './houses.component.css'
+  styleUrl: './houses.component.scss'
 })
 export class HousesComponent {
   houses = signal<IHouse[]>([]);
@@ -18,7 +19,7 @@ export class HousesComponent {
   constructor(private store: Store) {
     this.store.dispatch(loadHouses());
     this.store.select(selectAllHouses).subscribe(houses => this.houses.set(houses));
-    this.store.select(selectFavorites).subscribe(favs => this.favorites.set(favs));
+    this.store.select(selectFavorites).subscribe(favorites => this.favorites.set(favorites));
   }
 
   onSearch(event: Event) {
@@ -27,6 +28,7 @@ export class HousesComponent {
   }
 
   filteredHouses() {
+    if (this.searchTerm() === '') return this.houses()
     return this.houses().filter(house => house.name.toLowerCase().includes(this.searchTerm()));
   }
 

@@ -1,16 +1,27 @@
-<div class="list-container">
+<div class="house-list-container">
+   <h1>Houses</h1>
+
    <input
       type="text"
       placeholder="Search houses..."
+      class="search-bar"
       (input)="onSearch($event)"
    />
-   @for (house of filteredHouses(); track $index) {
-   <div class="house-card">
-      <h3>{{ house.name }}</h3>
-      <p>{{ house.region }}</p>
-      <button (click)="toggleFavorite(house)">
-         {{ isFavorite(house) ? "Remove from Favorites" : "Add to Favorites" }}
-      </button>
-   </div>
-   }
+
+   <ul>
+      @for (house of filteredHouses(); track $index) {
+      <li class="house-card">
+         <h2>{{ house.name }}</h2>
+         <p>{{ house.region }}</p>
+
+         <button (click)="toggleFavorite(house)">
+            {{
+               isFavorite(house) ? "Remove from Favorites" : "Add to Favorites"
+            }}
+         </button>
+      </li>
+      }@empty {
+      <p>No houses found.</p>
+      }
+   </ul>
 </div>

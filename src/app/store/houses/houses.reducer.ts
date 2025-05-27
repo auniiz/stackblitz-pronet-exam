@@ -1,7 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadHousesSuccess } from './houses.actions';
+import { loadHouses, loadHousesSuccess } from './houses.actions';
+import { state } from '@angular/animations';
+import { IHouse } from '../../models';
 
-const initialState: any[] = [];
+const initialState: IHouse[] = [];
 
 export const housesReducer = createReducer(
    initialState,

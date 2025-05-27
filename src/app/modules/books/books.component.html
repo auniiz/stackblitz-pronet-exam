@@ -1,0 +1,28 @@
+<div class="book-list-container">
+   <h1>Books</h1>
+
+   <input
+      type="text"
+      placeholder="Search books..."
+      class="search-bar"
+      (input)="onSearch($event)"
+   />
+
+   <ul>
+      @for (book of filteredBooks(); track $index) {
+      <li class="book-card">
+         <h2>{{ book.name }}</h2>
+         <p><strong>Author(s):</strong> {{ book.authors.join(", ") }}</p>
+         <p><strong>Released:</strong> {{ book.released | date }}</p>
+
+         <button (click)="toggleFavorite(book)">
+            {{
+               isFavorite(book) ? "Remove from Favorites" : "Add to Favorites"
+            }}
+         </button>
+      </li>
+      }@empty {
+      <p>No books found.</p>
+      }
+   </ul>
+</div>
