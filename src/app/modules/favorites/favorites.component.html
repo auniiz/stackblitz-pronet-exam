@@ -4,12 +4,11 @@
    <ul>
       @for (item of favorites(); track $index) {
       <li class="favorite-card">
-         <h3>{{ item.name }}</h3>
-         @switch (item.type) { @case ('character') {
-         <p>Character • Gender: {{ item.gender }}</p>
-         }@case ('house') {
-         <p>House • Region: {{ item.region }}</p>
-         }}
+         @switch (item.type) { @case ('character') {<app-card-character
+            [character]="item"
+         ></app-card-character
+         >} @case ('house') {<app-card-house [house]="item"></app-card-house>}
+         @case ('book') {<app-card-book [book]="item"></app-card-book>}}
          <button (click)="remove(item.url)">
             {{ "Remove from Favorites" }}
          </button>

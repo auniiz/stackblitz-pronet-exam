@@ -11,10 +11,7 @@
    <ul>
       @for (book of filteredBooks(); track $index) {
       <li class="book-card">
-         <h2>{{ book.name }}</h2>
-         <p><strong>Author(s):</strong> {{ book.authors.join(", ") }}</p>
-         <p><strong>Released:</strong> {{ book.released | date }}</p>
-
+         <app-card-book [book]="book"></app-card-book>
          <button (click)="toggleFavorite(book)">
             {{
                isFavorite(book) ? "Remove from Favorites" : "Add to Favorites"

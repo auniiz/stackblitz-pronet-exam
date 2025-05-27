@@ -3,10 +3,11 @@ import { Store } from '@ngrx/store';
 import { ICharacter, IFavoriteItem } from '../../models';
 import { addFavorite, loadCharacters, removeFavorite, selectAllCharacters, selectFavorites } from '../../store';
 import { CommonModule } from '@angular/common';
+import { CardCharacterComponent } from '../shared';
 
 @Component({
   selector: 'app-characters',
-  imports: [CommonModule],
+  imports: [CommonModule, CardCharacterComponent],
   templateUrl: './characters.component.html',
   styleUrl: './characters.component.scss'
 })
@@ -34,7 +35,7 @@ export class CharactersComponent {
     if (this.isFavorite(item)) {
       this.store.dispatch(removeFavorite({ itemUrl: item.url }));
     } else {
-      this.store.dispatch(addFavorite({ item }));
+      this.store.dispatch(addFavorite({ item: <ICharacter>{ ...item, type: 'character' } }));
     }
   }
 

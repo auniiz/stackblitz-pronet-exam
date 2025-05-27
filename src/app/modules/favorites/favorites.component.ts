@@ -3,10 +3,18 @@ import { Store } from '@ngrx/store';
 import { IFavoriteItem, } from '../../models';
 import { selectFavorites, removeFavorite } from '../../store';
 import { CommonModule } from '@angular/common';
+import { CardBookComponent, CardCharacterComponent, CardHouseComponent } from '../shared';
 
 @Component({
   selector: 'app-favorites',
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    // Components
+    CardBookComponent,
+    CardCharacterComponent,
+    CardHouseComponent
+
+  ],
   templateUrl: './favorites.component.html',
   styleUrl: './favorites.component.scss'
 })

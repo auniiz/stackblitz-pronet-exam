@@ -1,0 +1,17 @@
+<h2>{{ character.name }}</h2>
+<p><strong>Gender:</strong> {{ character.gender }}</p>
+<p><strong>Culture:</strong> {{ character.culture || "Unknown" }}</p>
+<p><strong>Born:</strong> {{ character.born || "Unknown" }}</p>
+<p><strong>Died:</strong> {{ character.died || "Alive" }}</p>
+<p>
+   <strong>Titles:</strong>
+   {{ character.titles?.length ? character.titles.join(", ") : "None" }}
+</p>
+<p>
+   <strong>Aliases:</strong>
+   {{ character.aliases?.length ? character.aliases.join(", ") : "None" }}
+</p>
+<p>
+   <strong>Played By:</strong>
+   {{ character.playedBy?.join(", ") || "Unknown" }}
+</p>

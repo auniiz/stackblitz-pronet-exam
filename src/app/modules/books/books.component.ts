@@ -10,11 +10,12 @@ import {
 import { IBook, IFavoriteItem } from '../../models';
 import { map } from 'rxjs';
 import { removeFavorite, addFavorite, selectFavorites } from '../../store';
+import { CardBookComponent } from '../shared';
 
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CardBookComponent],
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss',
 })
@@ -42,7 +43,7 @@ export class BooksComponent {
     if (this.isFavorite(item)) {
       this.store.dispatch(removeFavorite({ itemUrl: item.url }));
     } else {
-      this.store.dispatch(addFavorite({ item }));
+      this.store.dispatch(addFavorite({ item: <IBook>{ ...item, type: 'book' } }));
     }
   }
 

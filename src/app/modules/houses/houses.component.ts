@@ -3,10 +3,11 @@ import { Store } from '@ngrx/store';
 import { IFavoriteItem, IHouse } from '../../models';
 import { addFavorite, loadHouses, removeFavorite, selectAllHouses, selectFavorites } from '../../store';
 import { CommonModule } from '@angular/common';
+import { CardHouseComponent } from '../shared';
 
 @Component({
   selector: 'app-houses',
-  imports: [CommonModule],
+  imports: [CommonModule, CardHouseComponent],
   templateUrl: './houses.component.html',
   styleUrl: './houses.component.scss'
 })
@@ -42,7 +43,7 @@ export class HousesComponent {
     if (this.isFavorite(item)) {
       this.store.dispatch(removeFavorite({ itemUrl: item.url }));
     } else {
-      this.store.dispatch(addFavorite({ item }));
+      this.store.dispatch(addFavorite({ item: <IHouse>{ ...item, type: 'house' } }));
     }
   }
 }

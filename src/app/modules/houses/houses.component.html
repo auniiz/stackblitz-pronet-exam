@@ -11,8 +11,7 @@
    <ul>
       @for (house of filteredHouses(); track $index) {
       <li class="house-card">
-         <h2>{{ house.name }}</h2>
-         <p>{{ house.region }}</p>
+         <app-card-house [house]="house"></app-card-house>
 
          <button (click)="toggleFavorite(house)">
             {{
