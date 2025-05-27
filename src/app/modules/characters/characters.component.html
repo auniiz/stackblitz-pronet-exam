@@ -1,1 +1,47 @@
-<p>characters works!</p>
+<div class="characters-list-container">
+   <h1>Characters</h1>
+
+   <input
+      type="text"
+      placeholder="Search characters..."
+      class="search-bar"
+      (input)="onSearch($event)"
+   />
+   <ul>
+      @for (character of filteredCharacters(); track $index) {
+      <li class="character-card">
+         <h2>{{ character.name }}</h2>
+         <p><strong>Gender:</strong> {{ character.gender }}</p>
+         <p><strong>Culture:</strong> {{ character.culture || "Unknown" }}</p>
+         <p><strong>Born:</strong> {{ character.born || "Unknown" }}</p>
+         <p><strong>Died:</strong> {{ character.died || "Alive" }}</p>
+         <p>
+            <strong>Titles:</strong>
+            {{
+               character.titles?.length ? character.titles.join(", ") : "None"
+            }}
+         </p>
+         <p>
+            <strong>Aliases:</strong>
+            {{
+               character.aliases?.length ? character.aliases.join(", ") : "None"
+            }}
+         </p>
+         <p>
+            <strong>Played By:</strong>
+            {{ character.playedBy?.join(", ") || "Unknown" }}
+         </p>
+
+         <button (click)="toggleFavorite(character)">
+            {{
+               isFavorite(character)
+                  ? "Remove from Favorites"
+                  : "Add to Favorites"
+            }}
+         </button>
+      </li>
+      }@empty {
+      <p>No character found.</p>
+      }
+   </ul>
+</div>

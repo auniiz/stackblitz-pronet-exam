@@ -2,12 +2,12 @@ import { createReducer, on } from '@ngrx/store';
 import * as CharacterActions from './characters.actions';
 import { ICharacter } from '../../models/character.model';
 
-export interface CharacterState {
+export interface ICharacterState {
    characters: ICharacter[];
    error: any;
 }
 
-const initialState: CharacterState = {
+const initialState: ICharacterState = {
    characters: [],
    error: null,
 };

@@ -8,7 +8,7 @@ export class HousesService {
    url = 'https://anapioficeandfire.com/api/houses';
    constructor(private http: HttpClient) { }
 
-   getAll(): Observable<any[]> {
+   getAll(): Observable<IHouse[]> {
       return this.http.get<IHouse[]>(this.url);
    }
 }

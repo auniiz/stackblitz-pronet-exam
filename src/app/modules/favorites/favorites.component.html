@@ -1,16 +1,21 @@
 <div class="favorites-container">
-   <h2>Favorites</h2>
-   @for (item of favorites(); track $index) {
-   <div class="favorite-card">
-      <div>
+   <h1>Favorites</h1>
+
+   <ul>
+      @for (item of favorites(); track $index) {
+      <li class="favorite-card">
          <h3>{{ item.name }}</h3>
          @switch (item.type) { @case ('character') {
          <p>Character • Gender: {{ item.gender }}</p>
          }@case ('house') {
          <p>House • Region: {{ item.region }}</p>
          }}
-      </div>
-      <button (click)="remove(item.url)">Remove</button>
-   </div>
-   }
+         <button (click)="remove(item.url)">
+            {{ "Remove from Favorites" }}
+         </button>
+      </li>
+      }@empty {
+      <p>No favorites..</p>
+      }
+   </ul>
 </div>

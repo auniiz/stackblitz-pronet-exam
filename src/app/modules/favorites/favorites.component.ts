@@ -1,13 +1,14 @@
 import { Component, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ICharacter, IFavoriteItem, IHouse } from '../../models';
+import { IFavoriteItem, } from '../../models';
 import { selectFavorites, removeFavorite } from '../../store';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-favorites',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './favorites.component.html',
-  styleUrl: './favorites.component.css'
+  styleUrl: './favorites.component.scss'
 })
 export class FavoritesComponent {
   favorites = signal<IFavoriteItem[]>([]);
@@ -22,10 +23,3 @@ export class FavoritesComponent {
 
 }
 
-export function isHouse(item: IFavoriteItem): item is IHouse {
-  return item.type === 'house';
-}
-
-export function isCharacter(item: IFavoriteItem): item is ICharacter {
-  return item.type === 'character';
-}

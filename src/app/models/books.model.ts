@@ -12,8 +12,3 @@ export interface IBooksState {
    error: string | null;
 }
 
-export const initialBooksState: IBooksState = {
-   books: [],
-   loading: false,
-   error: null,
-};
